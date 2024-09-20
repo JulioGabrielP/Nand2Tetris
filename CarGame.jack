@@ -9,17 +9,17 @@
  * the square's size. The 'q' key is used to quit the game.
  */
 
-class GhostGame {
+class CarGame {
    field int direction; // the square's current direction: 
                         // 0=none, 1=up, 2=down, 3=left, 4=right
    field Random random;
-   field Ghost ghost;
+   field Car car;
 
    /** Constructs a new Square Game. */
-   constructor GhostGame new() {
+   constructor CarGame new() {
       // Creates a 30 by 30 pixels square and positions it at the top-left
       // of the screen.
-      let ghost = Ghost.new(224, 224);
+      let car = Car.new(224, 224);
       let random = Random.new(19);
       let direction = 0;  // initial state is no movement
       return this;
@@ -27,15 +27,15 @@ class GhostGame {
 
    /** Disposes this game. */
    method void dispose() {
-      do ghost.dispose();
+      do car.dispose();
       do Memory.deAlloc(this);
       return;
    }
 
    /** Moves the square in the current direction. */
-   method void moveGhost() {
-      if (direction = 3) { do ghost.moveLeft(); }
-      if (direction = 4) { do ghost.moveRight(); }
+   method void moveCar() {
+      if (direction = 3) { do car.moveLeft(); }
+      if (direction = 4) { do car.moveRight(); }
       do Sys.wait(5);  // delays the next movement
       return;
    }
@@ -50,20 +50,20 @@ class GhostGame {
          // waits for a key to be pressed
          while (key = 0) {
             let key = Keyboard.keyPressed();
-            do moveGhost();
+            do moveCar();
             do Sys.wait(50);
             // let direction = random.randRange(4);
          }
          if (key = 81)  { let exit = true; }     // q key
-         // if (key = 90)  { do ghost.decSize(); } // z key
-         // if (key = 88)  { do ghost.incSize(); } // x key
+         // if (key = 90)  { do car.decSize(); } // z key
+         // if (key = 88)  { do car.incSize(); } // x key
          if (key = 130) { let direction = 3; }   // left arrow
          if (key = 132) { let direction = 4; }   // right arrow
 
          // waits for the key to be released
          while (~(key = 0)) {
             let key = Keyboard.keyPressed();
-            do moveGhost();
+            do moveCar();
             do Sys.wait(50);
          }
          let direction = 0; 
@@ -71,6 +71,3 @@ class GhostGame {
      return;
    }
 }
-
-
-

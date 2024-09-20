@@ -1,4 +1,4 @@
-function Ghost.new 0
+function Car.new 0
 push constant 4
 call Memory.alloc 1
 pop pointer 0
@@ -11,11 +11,11 @@ pop this 2
 push constant 0
 pop this 3
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 push pointer 0
 return
-function Ghost.dispose 0
+function Car.dispose 0
 push argument 0
 pop pointer 0
 push pointer 0
@@ -23,7 +23,7 @@ call Memory.deAlloc 1
 pop temp 0
 push constant 0
 return
-function Ghost.draw 0
+function Car.draw 0
 push argument 0
 pop pointer 0
 push pointer 0
@@ -34,11 +34,11 @@ push this 0
 push this 2
 call Math.divide 2
 add
-call Ghost.drawHappyGhost 2
+call Car.drawCar 2
 pop temp 0
 push constant 0
 return
-function Ghost.erase 0
+function Car.erase 0
 push argument 0
 pop pointer 0
 push constant 0
@@ -56,7 +56,7 @@ call Screen.drawRectangle 4
 pop temp 0
 push constant 0
 return
-function Ghost.drawHappyGhost 0
+function Car.drawCar 0
 push argument 0
 pop pointer 0
 push constant 16384
@@ -161,7 +161,7 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
-function Ghost.incSize 0
+function Car.incSize 0
 push argument 0
 pop pointer 0
 push this 1
@@ -179,19 +179,19 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-call Ghost.erase 1
+call Car.erase 1
 pop temp 0
 push this 2
 push constant 2
 add
 pop this 2
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 label IF_FALSE0
 push constant 0
 return
-function Ghost.decSize 0
+function Car.decSize 0
 push argument 0
 pop pointer 0
 push this 2
@@ -201,19 +201,19 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-call Ghost.erase 1
+call Car.erase 1
 pop temp 0
 push this 2
 push constant 2
 sub
 pop this 2
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 label IF_FALSE0
 push constant 0
 return
-function Ghost.moveUp 0
+function Car.moveUp 0
 push argument 0
 pop pointer 0
 push this 1
@@ -223,19 +223,19 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-call Ghost.erase 1
+call Car.erase 1
 pop temp 0
 push this 1
 push constant 16
 sub
 pop this 1
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 label IF_FALSE0
 push constant 0
 return
-function Ghost.moveDown 0
+function Car.moveDown 0
 push argument 0
 pop pointer 0
 push this 1
@@ -247,19 +247,19 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-call Ghost.erase 1
+call Car.erase 1
 pop temp 0
 push this 1
 push constant 16
 add
 pop this 1
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 label IF_FALSE0
 push constant 0
 return
-function Ghost.moveLeft 0
+function Car.moveLeft 0
 push argument 0
 pop pointer 0
 push this 0
@@ -269,19 +269,19 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-call Ghost.erase 1
+call Car.erase 1
 pop temp 0
 push this 0
 push constant 16
 sub
 pop this 0
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 label IF_FALSE0
 push constant 0
 return
-function Ghost.moveRight 0
+function Car.moveRight 0
 push argument 0
 pop pointer 0
 push this 0
@@ -293,14 +293,14 @@ if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push pointer 0
-call Ghost.erase 1
+call Car.erase 1
 pop temp 0
 push this 0
 push constant 16
 add
 pop this 0
 push pointer 0
-call Ghost.draw 1
+call Car.draw 1
 pop temp 0
 label IF_FALSE0
 push constant 0

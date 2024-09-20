@@ -1,8 +1,8 @@
-/** Initializes a new Square Dance game and starts running it. */
+/** Initializes a new Car Dance game and starts running it. */
 class Main {
     function void main() {
-        var GhostGame game;
-        let game = GhostGame.new();
+        var CarGame game;
+        let game = CarGame.new();
         do game.run();
         do game.dispose();
         return;
